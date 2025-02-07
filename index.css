@@ -1,0 +1,226 @@
+/* Загальні стилі */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #121212; /* Темний фон */
+    color: #e0e0e0; /* Світлий текст */
+    text-align: center;
+}
+
+/* Затемнене фонове зображення */
+.intro {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: url('photos/3-scaled.webp') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Темний шар поверх фото */
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Ще темніше */
+}
+
+.intro h1 {
+    position: relative;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+    padding: 15px 25px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+/* Анімація появи */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Покращений дизайн контенту */
+.content {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    background: #1e1e1e; /* Темно-сірий фон */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+    padding: 35px;
+    font-size: 1.1em;
+    color: #e0e0e0;
+    line-height: 1.7;
+    max-width: 850px;
+    margin: 40px auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Додано більший відступ знизу, щоб видно було контейнери */
+.content:last-of-type {
+    margin-bottom: 80px; /* Більший відступ перед футером */
+}
+
+/* Додаємо ефект підняття при наведенні */
+.content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Послідовне з’явлення */
+.content:nth-child(2) { animation-delay: 0.5s; }
+.content:nth-child(3) { animation-delay: 1s; }
+.content:nth-child(4) { animation-delay: 1.5s; }
+
+/* Заголовки */
+.content h2 {
+    color: #1e90ff; /* Яскраво-синій */
+    font-size: 1.8em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #1e90ff;
+    display: inline-block;
+}
+
+/* Текст */
+.content p {
+    font-size: 1em;
+    color: #b0b0b0; /* Світло-сірий текст */
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Секція цін */
+.pricing {
+    text-align: center;
+    padding: 80px 20px;
+    color: #e0e0e0;
+}
+
+/* Додаємо анімацію для секції цін */
+.pricing {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+.pricing h2 {
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #1e90ff;
+}
+
+/* Контейнер для карток */
+.pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Окрема картка */
+.pricing-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease-out forwards;
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Послідовне з'явлення карток */
+.pricing-card:nth-child(1) {
+    animation-delay: 1.5s;
+}
+.pricing-card:nth-child(2) {
+    animation-delay: 1.8s;
+}
+.pricing-card:nth-child(3) {
+    animation-delay: 2.1s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.pricing-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1e90ff;
+}
+
+.pricing-card p {
+    font-size: 1em;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+
+/* Ціна */
+.price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Кнопка */
+.pricing-card button {
+    background: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.pricing-card button:hover {
+    background: #0c6cd4;
+}
+
+/* Футер */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer a {
+    text-decoration: none; /* Прибирає підкреслення */
+    color: inherit; /* Залишає стандартний колір */
+    transition: color 0.3s ease; /* Додає плавний ефект при наведенні */
+}
