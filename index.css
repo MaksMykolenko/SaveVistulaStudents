@@ -4,9 +4,12 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: #121212; /* Темний фон */
-    color: #e0e0e0; /* Світлий текст */
+    background: #0f0f0f; /* Темніший фон */
+    color: #e8e8e8; /* Світліший текст */
     text-align: center;
+    overflow-x: hidden;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 
 /* Затемнене фонове зображення */
@@ -32,23 +35,26 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Ще темніше */
+    background: rgba(0, 0, 0, 0.75); /* Темніший шар */
 }
 
 .intro h1 {
     position: relative;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
-    padding: 15px 25px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
+    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9);
+    padding: 20px 30px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-size: clamp(1.5em, 5vw, 3em); /* Покращена адаптація розміру */
+    max-width: 90%; /* Запобігає виходу за межі екрану */
+    word-wrap: break-word; /* Дозволяє перенос слів */
 }
 
 /* Анімація появи */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
@@ -60,150 +66,142 @@ html, body {
 .content {
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
-    background: #1e1e1e; /* Темно-сірий фон */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
-    padding: 35px;
-    font-size: 1.1em;
-    color: #e0e0e0;
-    line-height: 1.7;
-    max-width: 850px;
-    margin: 40px auto;
+    background: #1b1b1b; /* Темніше */
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.07);
+    padding: 40px;
+    font-size: clamp(1em, 1.2vw, 1.2em);
+    color: #dcdcdc;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 50px auto;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Додано більший відступ знизу, щоб видно було контейнери */
 .content:last-of-type {
-    margin-bottom: 80px; /* Більший відступ перед футером */
+    margin-bottom: 90px;
 }
 
 /* Додаємо ефект підняття при наведенні */
 .content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
 }
 
 /* Послідовне з’явлення */
-.content:nth-child(2) { animation-delay: 0.5s; }
-.content:nth-child(3) { animation-delay: 1s; }
-.content:nth-child(4) { animation-delay: 1.5s; }
+.content:nth-child(2) { animation-delay: 0.6s; }
+.content:nth-child(3) { animation-delay: 1.2s; }
+.content:nth-child(4) { animation-delay: 1.8s; }
 
 /* Заголовки */
 .content h2 {
-    color: #1e90ff; /* Яскраво-синій */
-    font-size: 1.8em;
+    color: #00aaff; /* Більш насичений синій */
+    font-size: clamp(1.5em, 2vw, 2em);
     text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 1.2px;
-    border-bottom: 2px solid #1e90ff;
+    margin-bottom: 18px;
+    letter-spacing: 1.5px;
+    border-bottom: 3px solid #00aaff;
     display: inline-block;
 }
 
 /* Текст */
 .content p {
-    font-size: 1em;
-    color: #b0b0b0; /* Світло-сірий текст */
-    line-height: 1.8;
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    color: #c0c0c0;
+    line-height: 1.9;
     text-align: justify;
 }
 
 /* Секція цін */
 .pricing {
     text-align: center;
-    padding: 80px 20px;
-    color: #e0e0e0;
+    padding: 90px 25px;
+    color: #e8e8e8;
 }
 
 /* Додаємо анімацію для секції цін */
 .pricing {
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 1.2s;
+    animation-delay: 1.5s;
 }
 
 .pricing h2 {
-    font-size: 2em;
+    font-size: clamp(1.8em, 2.2vw, 2.2em);
     text-transform: uppercase;
-    margin-bottom: 30px;
-    color: #1e90ff;
+    margin-bottom: 35px;
+    color: #00aaff;
 }
 
 /* Контейнер для карток */
 .pricing-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Три колонки з обмеженою шириною */
-    gap: 25px; /* Відступи між картками */
-    max-width: 1050px; /* Зменшує загальну ширину контейнера */
-    margin: 0 auto; /* Центрує блок */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивна сітка */
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
-
 
 /* Окрема картка */
 .pricing-card {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px);
     animation: fadeInUp 1s ease-out forwards;
-    background: #222;
-    padding: 25px;
-    border-radius: 12px;
-    width: 280px;
+    background: #282828;
+    padding: 30px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Послідовне з'явлення карток */
-.pricing-card:nth-child(1) {
-    animation-delay: 1.5s;
-}
-.pricing-card:nth-child(2) {
-    animation-delay: 1.8s;
-}
-.pricing-card:nth-child(3) {
-    animation-delay: 2.1s;
-}
+.pricing-card:nth-child(1) { animation-delay: 1.8s; }
+.pricing-card:nth-child(2) { animation-delay: 2.1s; }
+.pricing-card:nth-child(3) { animation-delay: 2.4s; }
 
 .pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
 }
 
 .pricing-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #1e90ff;
+    font-size: clamp(1.5em, 1.7vw, 1.7em);
+    margin-bottom: 12px;
+    color: #00aaff;
 }
 
 .pricing-card p {
-    font-size: 1em;
-    color: #b0b0b0;
-    margin-bottom: 15px;
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    color: #d0d0d0;
+    margin-bottom: 18px;
 }
 
 /* Ціна */
 .price {
-    font-size: 1.8em;
+    font-size: clamp(1.8em, 2vw, 2em);
     font-weight: bold;
-    color: #fff;
+    color: #ffffff;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* Кнопка */
 .pricing-card button {
-    background: #1e90ff;
+    background: #00aaff;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: clamp(1em, 1.1vw, 1.1em);
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .pricing-card button:hover {
-    background: #0c6cd4;
+    background: #008ecc;
 }
 
 /* Футер */
