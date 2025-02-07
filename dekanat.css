@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #121212; /* Темний фон без зображення */
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+h1 {
+    font-size: 2.5em;
+    color: #1e90ff;
+    margin-bottom: 20px;
+}
+.timer {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ff4747;
+}
+
+/* Футер */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer a {
+    text-decoration: none; /* Прибирає підкреслення */
+    color: inherit; /* Залишає стандартний колір */
+    transition: color 0.3s ease; /* Додає плавний ефект при наведенні */
+}

@@ -131,11 +131,13 @@ html, body {
 
 /* Контейнер для карток */
 .pricing-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* Три колонки з обмеженою шириною */
+    gap: 25px; /* Відступи між картками */
+    max-width: 1050px; /* Зменшує загальну ширину контейнера */
+    margin: 0 auto; /* Центрує блок */
 }
+
 
 /* Окрема картка */
 .pricing-card {

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зв'язок з деканатом</title>
+    <link rel="stylesheet" href="dekanat.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ви зможете написати до деканату через:</h1>
+        <div id="countdown" class="timer">5 років 0 днів 00 годин 00 хвилин 00 секунд</div>
+    </div>
+
+    <footer>
+        <a href="https://maksmykolenko.github.io/MaksGames/" style="font-size: calc(var(--sizeindex) * 2); opacity: 60%;">©Copyright 2024 by MaxGames.dev. All rights reserved.</a>
+    </footer>
+
+    <script>
+        function startCountdown() {
+            const targetDate = new Date();
+            targetDate.setFullYear(targetDate.getFullYear() + 5); // Додаємо 5 років
+
+            function updateTimer() {
+                const now = new Date();
+                let timeLeft = Math.max(0, targetDate - now) / 1000; // Час у секундах
+
+                let years = Math.floor(timeLeft / (365 * 24 * 60 * 60));
+                let remainingTime = timeLeft - years * 365 * 24 * 60 * 60;
+
+                let days = Math.floor(remainingTime / (24 * 60 * 60));
+                let hours = Math.floor((remainingTime % (24 * 60 * 60)) / (60 * 60));
+                let minutes = Math.floor((remainingTime % (60 * 60)) / 60);
+                let seconds = Math.floor(remainingTime % 60);
+
+                // Змінюємо відображення років та днів
+                if (days === 0 && years > 0) {
+                    years--;
+                    days = 365;
+                }
+
+                document.getElementById('countdown').innerHTML = 
+                    `${years} ${declension(years, 'рік', 'роки', 'років')} ` +
+                    `${days} ${declension(days, 'день', 'дні', 'днів')} ` +
+                    `${hours} ${declension(hours, 'година', 'години', 'годин')} ` +
+                    `${minutes} ${declension(minutes, 'хвилина', 'хвилини', 'хвилин')} ` +
+                    `${seconds} ${declension(seconds, 'секунда', 'секунди', 'секунд')}`;
+            }
+
+            function declension(number, one, few, many) {
+                if (number % 10 === 1 && number % 100 !== 11) return one;
+                if (number % 10 >= 2 && number % 10 <= 4 && (number % 100 < 10 || number % 100 >= 20)) return few;
+                return many;
+            }
+
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        startCountdown();
+    </script>
+</body>
+</html>
