@@ -23,6 +23,13 @@
                 <option value="3">Відчислитися самому - 2000zł</option>
             </select>
 
+            <label for="service">Виберіть спосіб оплати</label>
+            <select id="service" name="service" required>
+                <option value="1">Натурою</option>
+                <option value="2">Продати почку друга</option>
+                <option value="3">Продати лєшика німцям</option>
+            </select>
+
             <label for="comment">Коментар (необов'язково):</label>
             <textarea id="comment" name="comment" rows="4"></textarea>
 
@@ -34,7 +41,7 @@
     <footer>
         <a href="https://maksmykolenko.github.io/MaksGames/" style="font-size: calc(var(--sizeindex) * 2); opacity: 60%;">©Copyright 2024 by MaxGames.dev. All rights reserved.</a>
     </footer>
-    
+
     <script>
         document.getElementById('orderForm').addEventListener('submit', function(event) {
             event.preventDefault();
