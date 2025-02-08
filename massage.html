@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage</title>
+    <link rel="stylesheet" href="massage.css">
+    <script>
+        function showMessage() {
+            let predefinedMessage = "Викладач з баз даних все одно хуй покладе на ваше повідомлення і хуй його прочитає";
+            alert(predefinedMessage);
+        }
+    </script>
+</head>
+<body>
+    <div class="intro">
+        <div class="message-container">
+            <h1>Введіть ваше повідомлення</h1>
+            <textarea id="userMessage" rows="4" cols="50" placeholder="Напишіть щось..."></textarea>
+            <div class="button-group">
+                <button onclick="showMessage()">Надіслати</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a style="font-size: calc(var(--sizeindex) * 2); opacity: 60%;">©Copyright 2024 by MaxGames.dev. All rights reserved.</a>
+    </footer>
+</body>
+</html>
